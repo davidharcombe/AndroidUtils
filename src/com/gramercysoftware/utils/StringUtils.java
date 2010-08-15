@@ -2,6 +2,8 @@ package com.gramercysoftware.utils;
 
 public class StringUtils {
 
+	private static final String EMPTY = "";
+
 	public static String center(String original, int finalSize) {
 		return center(original, finalSize, " ");
 	}
@@ -37,4 +39,36 @@ public class StringUtils {
 		return padding.toString();
 	}
 
+    public static String substringBefore(String str, String separator) {
+        if (isEmpty(str) || separator == null) {
+            return str;
+        }
+        if (separator.length() == 0) {
+            return EMPTY;
+        }
+        int pos = str.indexOf(separator);
+        if (pos == -1) {
+            return str;
+        }
+        return str.substring(0, pos);
+    }
+
+    public static String substringBeforeLast(String str, String separator) {
+        if (isEmpty(str) || isEmpty(separator)) {
+            return str;
+        }
+        int pos = str.lastIndexOf(separator);
+        if (pos == -1) {
+            return str;
+        }
+        return str.substring(0, pos);
+    }
+
+    public static boolean isEmpty(String str) {
+        return str == null || str.length() == 0;
+    }
+
+    public static boolean isNotEmpty(String str) {
+    	return !isEmpty(str);
+    }
 }
