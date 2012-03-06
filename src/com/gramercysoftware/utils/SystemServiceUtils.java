@@ -21,7 +21,7 @@ import android.content.Context;
  */
 public class SystemServiceUtils {
 	@SuppressWarnings("unchecked")
-	public static <T> T getSystemService(Context context, String service, Class<T> foo) {
+	public static <T> T getSystemServiceObject(Context context, String service, Class<T> foo) {
 		return (T) context.getSystemService(service);
 	}
 }
